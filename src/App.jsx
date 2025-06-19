@@ -898,50 +898,6 @@ function App() {
                           <h3 className="text-2xl font-bold text-green-700">{crop.name}</h3>
                         </div>
                         
-                        <div className="space-y-3 text-gray-700">
-                          <div className="flex items-start gap-2">
-                            <Droplets className="h-5 w-5 text-blue-500 mt-0.5 flex-shrink-0" />
-                            <div>
-                              <span className="font-semibold">Water Need:</span> {crop.waterNeed}
-                            </div>
-                          </div>
-                          
-                          <div className="flex items-start gap-2">
-                            <Thermometer className="h-5 w-5 text-orange-500 mt-0.5 flex-shrink-0" />
-                            <div>
-                              <span className="font-semibold">Ideal Conditions:</span> {crop.idealConditions}
-                            </div>
-                          </div>
-                          
-                          <div className="flex items-start gap-2">
-                            <FlaskConical className="h-5 w-5 text-purple-500 mt-0.5 flex-shrink-0" />
-                            <div>
-                              <span className="font-semibold">NPK Requirements:</span> {crop.npk}
-                            </div>
-                          </div>
-                          
-                          <div className="flex items-start gap-2">
-                            <div className="text-green-600 mt-0.5">🧪</div>
-                            <div>
-                              <span className="font-semibold">Nutrition:</span> {crop.nutrition}
-                            </div>
-                          </div>
-                          
-                          <div className="flex items-start gap-2">
-                            <div className="text-yellow-600 mt-0.5">📈</div>
-                            <div>
-                              <span className="font-semibold">Expected Yield:</span> {crop.yield}
-                            </div>
-                          </div>
-                          
-                          <div className="flex items-start gap-2">
-                            <div className="text-blue-600 mt-0.5">🗓</div>
-                            <div>
-                              <span className="font-semibold">Best Season:</span> {crop.season}
-                            </div>
-                          </div>
-                        </div>
-                        
                         <div className="mt-4 pt-4 border-t border-gray-200">
                           <div className="text-sm text-green-600 font-semibold">
                             ✅ Suitable for your conditions
