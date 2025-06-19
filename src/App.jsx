@@ -131,7 +131,7 @@ function App() {
       */
 
       const response = await axios.post(
-        `${API_URL}/recommend`,
+        `${API_URL}`,
         payload,
         {
           headers: {
