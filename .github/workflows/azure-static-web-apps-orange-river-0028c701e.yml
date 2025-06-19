@@ -15,12 +15,13 @@ jobs:
     runs-on: ubuntu-latest
     name: Build and Deploy Job
     env:
-      REACT_APP_API_URL: ${{ secrets.REACT_APP_API_URL }}  # use this for CRA, not VITE_API_URL
+      REACT_APP_API_URL: ${{ secrets.REACT_APP_API_URL }}
     steps:
       - uses: actions/checkout@v3
         with:
           submodules: true
           lfs: false
+
       - name: Build And Deploy
         id: builddeploy
         uses: Azure/static-web-apps-deploy@v1
@@ -28,10 +29,10 @@ jobs:
           azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_ORANGE_RIVER_0028C701E }}
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           action: "upload"
-          app_location: "/"                # CRA root
-          api_location: ""                 # You can specify "api" here if you have Azure Functions
-          output_location: "build"         # CRA builds to build/
-          app_build_command: "npm run build"
+          app_location: "/"                    # Root of CRA project
+          api_location: ""                     # Set to "api" if you have Azure Functions
+          output_location: "build"             # CRA output directory
+          app_build_command: "npm run build"   # ✅ Explicitly added CRA build command
 
   close_pull_request_job:
     if: github.event_name == 'pull_request' && github.event.action == 'closed'
