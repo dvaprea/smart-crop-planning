@@ -99,11 +99,9 @@ function App() {
     setIsLoading(true);
 
     try {
-      const AZURE_FUNCTION_URL = process.env.REACT_APP_AZURE_FUNCTION_URL;
+      // Use environment variable with fallback to hardcoded URL
+     const API_URL = import.meta.env.VITE_API_URL || 'https://smart-crop-function.azurewebsites.net/api';
 
-      if (!AZURE_FUNCTION_URL) {
-        throw new Error('Azure Function URL is not defined in environment variables.');
-      }
 
       // Prepare the payload for the Azure Function
       const payload = {
@@ -132,11 +130,15 @@ function App() {
       };
       */
 
-      const response = await axios.post(AZURE_FUNCTION_URL, payload, {
-        headers: {
-          'Content-Type': 'application/json'
+      const response = await axios.post(
+        `${API_URL}/recommend`,
+        payload,
+        {
+          headers: {
+            'Content-Type': 'application/json'
+          }
         }
-      });
+      );
 
       // Log the full response for debugging
       console.log('Raw response:', JSON.stringify(response.data, null, 2));
